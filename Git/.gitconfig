@@ -1,0 +1,13 @@
+[alias]
+	all = log --all --oneline --graph --decorate
+	lol = log --oneline --graph --decorate
+	dif = difftool --dir-diff --no-prompt
+	difc = difftool --dir-diff --no-prompt --cached
+	stat = status
+[merge]
+	tool = winmerge
+[diff]
+	tool = winmerge
+	guitool = winmerge
+[difftool "winmerge"]
+	cmd = 'C:/Program Files (x86)/WinMerge/WinMergeU.exe' -r $LOCAL $REMOTE
