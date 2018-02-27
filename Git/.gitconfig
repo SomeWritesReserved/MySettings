@@ -1,13 +1,18 @@
-[alias]
-	all = log --all --oneline --graph --decorate
-	lol = log --oneline --graph --decorate
-	dif = difftool --dir-diff --no-prompt
-	difc = difftool --dir-diff --no-prompt --cached
-	stat = status
 [merge]
 	tool = winmerge
+	ff = only
 [diff]
 	tool = winmerge
-	guitool = winmerge
 [difftool "winmerge"]
-	cmd = 'C:/Program Files (x86)/WinMerge/WinMergeU.exe' -r $LOCAL $REMOTE
+	cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" -r "$LOCAL" "$REMOTE"
+[alias]
+	all = log --oneline --graph --decorate --all
+	lol = log --oneline --graph --decorate
+	logr = log --oneline --decorate --reverse
+	dif = difftool --no-prompt --dir-diff
+	difa = difftool --no-prompt
+	difc = difftool --dir-diff --no-prompt --cached
+	stat = status
+	cln = clean -X -d -f
+	pruneb = remote prune origin
+	amend = commit --amend --date=now
