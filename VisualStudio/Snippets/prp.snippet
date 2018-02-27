@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>Property</Title>
+		<Author>Chad Weimer</Author>
+		<Shortcut>prp</Shortcut>
+		<Description>2.0-style property declaration</Description>
+		<SnippetTypes>
+			<SnippetType>SurroundsWith</SnippetType>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>type</ID>
+				<Default>int</Default>
+			</Literal>
+			<Literal>
+				<ID>field</ID>
+				<Default>myProperty</Default>
+			</Literal>
+			<Literal>
+				<ID>property</ID>
+				<Default>MyProperty</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="CSharp">
+			<![CDATA[private $type$ $field$;
+/// <summary>
+/// 
+/// </summary>
+public $type$ $property$
+{
+	get { return this.$field$; }
+	set { this.$field$ = value; }
+}]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>Event</Title>
+		<Author>Chad Weimer</Author>
+		<Shortcut>event</Shortcut>
+		<Description>An event with a On... method to raise it.</Description>
+		<SnippetTypes>
+			<SnippetType>SurroundsWith</SnippetType>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>name</ID>
+				<Default>Event</Default>
+			</Literal>
+			<Literal>
+				<ID>eventArgs</ID>
+				<Default>EventArgs</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="CSharp">
+			<![CDATA[public event EventHandler<$eventArgs$> $name$;
+/// <summary>
+/// Raises the <see cref="$name$"/> event.
+/// </summary>
+protected virtual void On$name$($eventArgs$ e)
+{
+	EventHandler<$eventArgs$> handler = this.$name$;
+	if(handler != null)
+	{
+		handler(this, e);
+	}
+}]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>

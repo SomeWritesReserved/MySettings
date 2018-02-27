@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>Property with Event</Title>
+		<Author>Chad Weimer</Author>
+		<Shortcut>prpe</Shortcut>
+		<Description>2.0-style property declaration, with corresponding PropertyChanged event.</Description>
+		<SnippetTypes>
+			<SnippetType>SurroundsWith</SnippetType>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>type</ID>
+				<Default>int</Default>
+			</Literal>
+			<Literal>
+				<ID>field</ID>
+				<Default>myProperty</Default>
+			</Literal>
+			<Literal>
+				<ID>property</ID>
+				<Default>MyProperty</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="CSharp">
+			<![CDATA[private $type$ $field$;
+public $type$ $property$
+{
+	get { return this.$field$; }
+	set
+	{
+		if(this.$field$ != value)
+		{
+			this.$field$ = value;
+			
+			this.On$property$Changed(new PropertyChangedEventArgs("$property$"));
+		}
+	}
+}
+public event PropertyChangedEventHandler $property$Changed;
+protected virtual void On$property$Changed(PropertyChangedEventArgs e)
+{
+	PropertyChangedEventHandler handler = this.$property$Changed;
+	if(handler != null)
+	{
+		handler(this, e);
+	}
+}]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
