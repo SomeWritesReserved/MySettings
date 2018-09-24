@@ -6,13 +6,15 @@
 [difftool "winmerge"]
 	cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" -r "$LOCAL" "$REMOTE"
 [alias]
-	all = log --oneline --graph --decorate --all
+	addm = add -u
 	lol = log --oneline --graph --decorate
-	logr = log --oneline --decorate --reverse
+	lolr = log --oneline --decorate --reverse
 	dif = difftool --no-prompt --dir-diff
+	difh = difftool --no-prompt --dir-diff head~1 head
 	difa = difftool --no-prompt
 	difc = difftool --dir-diff --no-prompt --cached
-	stat = status
-	cln = clean -X -d -f
+	stat = status .
+	cln = clean -X -d -f -e !artifacts
+	clna = clean -X -d -f
 	pruneb = remote prune origin
 	amend = commit --amend --date=now
